@@ -28,9 +28,14 @@ const ExpenseForm = (props) => {
     };
 
     props.onSubmitExpenseForm(expenseData);
+    turnOffFormHandler();
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+  };
+
+  const turnOffFormHandler = () => {
+    props.turnOffForm();
   };
 
   return (
@@ -69,6 +74,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={turnOffFormHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
